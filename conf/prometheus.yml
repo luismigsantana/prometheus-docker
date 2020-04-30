@@ -1,0 +1,15 @@
+global:
+  scrape_interval:     10s
+  evaluation_interval: 10s
+  external_labels:
+      monitor: 'metrics'
+
+scrape_configs:
+  - job_name: 'myApi'
+    metrics_path: '/metrics'
+    params:
+      format: [text/plain]
+    honor_labels: true
+    scrape_interval: 5s
+    static_configs:
+         - targets: ['myApi:8888']
