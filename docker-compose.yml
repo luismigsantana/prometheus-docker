@@ -1,0 +1,15 @@
+version: "3"
+
+services: 
+    myApi:
+        image: myApi-image
+        container_name: myApi
+        ports: 
+            - 8888:8888
+    prometheus:
+        image: prometheus
+        container_name: prometheus
+        ports: 
+            - 9090:9090
+        links: 
+            - myApi:myApi
